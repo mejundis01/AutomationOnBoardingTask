@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace Keys_Onboarding.Test
 {
-   class Sprint 
+    class Sprint
     {
-      [TestFixture]
-      [Category("Sprint1")]
-       class Tenant : Base
-       {
-        
+        [TestFixture]
+        [Category("Sprint1")]
+        class PO_DashboardFeature : Base
+        {
+
             [Test]
             public void PO_AddNewProperty()
             {
-               
-                
+
+
                 // Creates a toggle for the given test, adds all log events under it    
                 test = extent.StartTest("Add New Property");
 
@@ -29,8 +29,8 @@ namespace Keys_Onboarding.Test
 
                 PropertyOwner obj = new PropertyOwner();
                 obj.AddNewProperty();
-               
-               
+
+
             }
 
             [Test]
@@ -55,7 +55,7 @@ namespace Keys_Onboarding.Test
 
             }
 
-                [Test]
+            [Test]
             public void PO_SendRequest()
             {
                 // Creates a toggle for the given test, adds all log events under it    
@@ -65,5 +65,23 @@ namespace Keys_Onboarding.Test
                 obj.SendRequest();
             }
         }
+
+        [TestFixture]
+        [Category("Sprint2")]
+        class PO_InspectionsFeature : Base
+        {
+
+            [Test]
+            public void PO_Inspections()
+            {
+
+                // Creates a toggle for the given test, adds all log events under it    
+                test = extent.StartTest("Add a New Inspection Request");
+
+                PropertyOwner obj = new PropertyOwner();
+                obj.Inspections();
+            }
+        }
     }
 }
+

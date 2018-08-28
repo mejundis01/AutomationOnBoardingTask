@@ -61,6 +61,17 @@ namespace Keys_Onboarding
             test = extent.StartTest("Add a Tenant");
 
             TearDown();
+        } 
+
+        [When(@"User have sent a new inspection request")]
+        public void WhenUserHaveSentANewInspectionRequest()
+        {
+            // Creates a toggle for the given test, adds all log events under it    
+            test = extent.StartTest("Send a new inspection request");
+
+            PropertyOwner obj = new PropertyOwner();
+            obj.Inspections();
         }
+
     }
 }

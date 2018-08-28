@@ -52,8 +52,6 @@ namespace Keys_Onboarding
             Thread.Sleep(1000);
             Ownertab.Click();
 
-            //Select properties page
-            PropertiesPage.Click();
         }
 
         internal void SearchAProperty()
@@ -63,6 +61,9 @@ namespace Keys_Onboarding
                 //Calling the common methods
                 Common_methods();
                 Thread.Sleep(500);
+
+                //Select properties page
+                PropertiesPage.Click();
 
                 //Driver.wait(5);
 
@@ -230,6 +231,9 @@ namespace Keys_Onboarding
             Common_methods();
             Thread.Sleep(500);
 
+            //Select properties page
+            PropertiesPage.Click();
+
             //Click on Add New Property button
             AddProperty.Click();
 
@@ -284,7 +288,7 @@ namespace Keys_Onboarding
 
             //Enter TargetRent
             TargetRent.SendKeys(ExcelLib.ReadData(2, "TargetRent"));
-            Driver.wait(1000);
+            Driver.wait(2000);
 
             //Enter Bedroms
             Bedrooms.SendKeys(ExcelLib.ReadData(2, "Bedrooms"));
@@ -311,9 +315,10 @@ namespace Keys_Onboarding
             autoIT.Send(@"C:\Users\VictorFelix\source\repos\automationOnboardingSample-master\Keys_Onboarding\TestReports\Screenshots\home.jpg");
             Thread.Sleep(1000);
             autoIT.Send("{Enter}");
-            Thread.Sleep(1000);
+            Driver.wait(2000);
 
             //Clicking on Next button
+
             Next.Click();
             Driver.wait(2000);
 
@@ -453,7 +458,7 @@ namespace Keys_Onboarding
         private IWebElement PaymentOptionTwo { get; set; }
 
         //Define Drop down button
-        [FindsBy(How = How.XPath, Using = "//div[@class='ui one wide column']/div[1]")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='main-content']/div/div[1]/div/div[3]/div/div[1]/div/div/div[2]/div[1]/div[3]/div/i")]
         private IWebElement DropDown { get; set; }
 
         //Define Manage Tenant button
@@ -469,6 +474,9 @@ namespace Keys_Onboarding
             //calling the common methods
             Common_methods();
             Thread.Sleep(500);
+
+            //Select properties page
+            PropertiesPage.Click();
 
             TenantRentDetails();
             
@@ -553,14 +561,14 @@ namespace Keys_Onboarding
                 Driver.wait(5000);
 
             //Clicking on Dropdown
-            if (DropDown.Displayed)
+            /*if (DropDown.Displayed)
             {
                 DropDown.Click();
                 Driver.wait(2000);
             }
                 //Clicking on Dropdown
                 ManageTenant.Click();
-                Driver.wait(2000);
+                Driver.wait(2000);*/
 
         }
 
@@ -618,7 +626,10 @@ namespace Keys_Onboarding
             //calling the common methods
             Common_methods();
             Thread.Sleep(500);
-                       
+
+            //Select properties page
+            PropertiesPage.Click();
+
             //Clicking on save button
             ListaRental.Click();
             Driver.wait(2000);
@@ -642,7 +653,7 @@ namespace Keys_Onboarding
             //Enter Available date
             AvailableDate.Clear();
             Driver.wait(500);
-            AvailableDate.SendKeys("16/08/2018");
+            AvailableDate.SendKeys("31/08/2018");
             Driver.wait(2000);
 
             //Enter Occupant Count
@@ -663,6 +674,10 @@ namespace Keys_Onboarding
             //Clicking on Save 
             ListSave.Click();
             Driver.wait(2000);
+
+            //Clicking on OK on Alert
+            //Driver.driver.SwitchTo().Alert().Accept();
+            //Driver.wait(2000);
 
             //Search for added list property
             SearchBox.SendKeys(ExcelLib.ReadData(2, "Title"));
@@ -701,5 +716,74 @@ namespace Keys_Onboarding
             RequestDesc.SendKeys(ExcelLib.ReadData(2, "Description"));
             Driver.wait(500);
         }
+
+        //Define Inspections page
+        [FindsBy(How = How.XPath, Using = "//a[@href='/PropertyOwners/Manage/Inspections']")]
+        private IWebElement InspectionsPage { get; set; }
+
+        //Define Add New Request Inspection page
+        [FindsBy(How = How.XPath, Using = "//a[@class='ui teal button right floated']")]
+        private IWebElement AddNewInspection { get; set; }
+
+        //Define Inspection Property drop down
+        [FindsBy(How = How.XPath, Using = "//div[@class='two fields']/div/div/i")]
+        private IWebElement PropertyDropDown { get; set; }
+
+        //Define Inspection Property drop down menu 3
+        [FindsBy(How = How.XPath, Using = "//div[@class='menu transition visible']/div[3]")]
+        private IWebElement PropertyDropDownThree { get; set; }
+
+        //Define Inspection Due Date bar
+        [FindsBy(How = How.XPath, Using = "//input[@type='text']")]
+        private IWebElement InspectionDueDate { get; set; }
+
+        //Define Inspection Description bar
+        [FindsBy(How = How.XPath, Using = "//textarea[@rows='10']")]
+        private IWebElement InspectionDesc { get; set; }
+
+        //Define Inspection Save button
+        [FindsBy(How = How.XPath, Using = "//button[@class='ui teal button']")]
+        private IWebElement InspectionSave { get; set; }
+
+        internal void Inspections()
+        {
+            //Calling common methods
+            Common_methods();
+            Thread.Sleep(1000);
+
+            //clicking on Inspections 
+            InspectionsPage.Click();
+            Driver.wait(2000);
+
+            //clicking on Inspections 
+            AddNewInspection.Click();
+            Driver.wait(2000);
+
+            //clicking on Inspections Property drop down 
+            PropertyDropDown.Click();
+            Driver.wait(2000);
+
+            //clicking on Inspections Property drop down three
+            PropertyDropDownThree.Click();
+            Driver.wait(2000);
+
+            //clearing on Inspections Due Date
+            InspectionDueDate.Click();
+            //InspectionDueDate.Clear();
+            Driver.wait(1000);
+
+            //Enter Inspection Due Date
+            //InspectionDueDate.SendKeys("15/09/2018");
+            //Driver.wait(2000);
+
+            //Enter Inspection Description
+            InspectionDesc.SendKeys("This inspection is just a test only.");
+            Driver.wait(2000);
+
+            //clicking on Inspections Save button 
+            InspectionSave.Click();
+            Driver.wait(5000);
+        }
+
     }
 }
