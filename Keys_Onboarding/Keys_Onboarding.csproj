@@ -110,11 +110,16 @@
     <Compile Include="Pages\Register.cs" />
     <Compile Include="Pages\Login.cs" />
     <Compile Include="Pages\PropertyOwner.cs" />
-    <Compile Include="Specflow\PO_Steps.cs" />
-    <Compile Include="Specflow\SpecFlowFeature.feature.cs">
+    <Compile Include="Specflow\ProductOwner\PO_Steps.cs" />
+    <Compile Include="Specflow\ProductOwner\PO_Dashboard.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowFeature.feature</DependentUpon>
+      <DependentUpon>PO_Dashboard.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specflow\ProductOwner\PO_Inspections.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PO_Inspections.feature</DependentUpon>
     </Compile>
     <Compile Include="Test\Sprint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,9 +127,13 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Specflow\SpecFlowFeature.feature">
+    <None Include="Specflow\ProductOwner\PO_Dashboard.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature.feature.cs</LastGenOutput>
+      <LastGenOutput>PO_Dashboard.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specflow\ProductOwner\PO_Inspections.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PO_Inspections.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

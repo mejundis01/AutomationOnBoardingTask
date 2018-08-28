@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Keys_Onboarding.Specflow
+namespace Keys_Onboarding.Specflow.ProductOwner
 {
     using TechTalk.SpecFlow;
     
@@ -24,7 +24,7 @@ namespace Keys_Onboarding.Specflow
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "SpecFlowFeature.feature"
+#line 1 "PO_Dashboard.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -129,25 +129,6 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("User have sent a new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
  testRunner.Then("The browser will be closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check if user is able to add new inspection request")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void CheckIfUserIsAbleToAddNewInspectionRequest()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if user is able to add new inspection request", new string[] {
-                        "mytag"});
-#line 27
-this.ScenarioSetup(scenarioInfo);
-#line 28
-testRunner.Given("User have logged into the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 29
-testRunner.When("User have sent a new inspection request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
-testRunner.Then("The browser will be closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
