@@ -284,7 +284,7 @@ namespace Keys_Onboarding
 
             //Enter Description
             Description.SendKeys(ExcelLib.ReadData(2, "Description"));
-            Driver.wait(1000);
+            Driver.wait(3000);
 
             //Enter TargetRent
             TargetRent.SendKeys(ExcelLib.ReadData(2, "TargetRent"));
@@ -320,7 +320,7 @@ namespace Keys_Onboarding
             //Clicking on Next button
 
             Next.Click();
-            Driver.wait(2000);
+            Driver.wait(3000);
 
         }
 
@@ -329,19 +329,19 @@ namespace Keys_Onboarding
             
             //Enter Purchase Prise value
             PurchasePrice.SendKeys(ExcelLib.ReadData(2, "PurchasePrice"));
-            Driver.wait(1000);
+            Driver.wait(2000);
 
             //Enter Mortgage value
             Mortgage.SendKeys(ExcelLib.ReadData(2, "Mortgage"));
-            Driver.wait(1000);
+            Driver.wait(2000);
 
             //Enter Home Value
             HomeValue.SendKeys(ExcelLib.ReadData(2, "HomeValue"));
-            Driver.wait(1000);
+            Driver.wait(2000);
 
             //Clicking on next button
             NextFinance.Click();
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
         }
 
         public void TenantDetails()
@@ -608,6 +608,10 @@ namespace Keys_Onboarding
         [FindsBy(How = How.XPath, Using = "//div[@class='sixtween wide center aligned column']/button[1]")]
         private IWebElement ListSave { get; set; }
 
+        //Define Rental Listings button
+        [FindsBy(How = How.XPath, Using = "//a[@href='/PropertyOwners/Property/RentalProperties']")]
+        private IWebElement RentalListings { get; set; }
+
         //Define Search Box bar
         [FindsBy(How = How.Id, Using = "SearchBox")]
         private IWebElement SearchBox { get; set; }
@@ -679,6 +683,14 @@ namespace Keys_Onboarding
             //Driver.driver.SwitchTo().Alert().Accept();
             //Driver.wait(2000);
 
+            //Click on the Owners tab
+            Ownertab.Click();
+            Thread.Sleep(1000);
+
+            //Click on the Rental Listings button
+            RentalListings.Click();
+            Thread.Sleep(1000);
+
             //Search for added list property
             SearchBox.SendKeys(ExcelLib.ReadData(2, "Title"));
             Driver.wait(2000);
@@ -697,6 +709,10 @@ namespace Keys_Onboarding
         [FindsBy(How = How.XPath, Using = "//textarea[@rows='10']")]
         private IWebElement RequestDesc { get; set; }
 
+        //Define Send Request button
+        [FindsBy(How = How.XPath, Using = "//div[@class='column text-center']/button")]
+        private IWebElement RequestSave { get; set; }
+
         internal void SendRequest()
         {
 
@@ -708,13 +724,25 @@ namespace Keys_Onboarding
             Common_methods();
             Thread.Sleep(500);
 
-            //Clicking on save button
+            //Select properties page
+            PropertiesPage.Click();
+            Thread.Sleep(1000);
+
+            //Clicking on Send a Request button
             SendaRequest.Click();
+            Thread.Sleep(1000);
+
+            //Clicking on save button
+            DueDate.Click();
             Thread.Sleep(1000);
 
             //Enter Request Description
             RequestDesc.SendKeys(ExcelLib.ReadData(2, "Description"));
-            Driver.wait(500);
+            Driver.wait(2000);
+
+            //Clicking on Send a Request Save button
+            RequestSave.Click();
+            Thread.Sleep(1000);
         }
 
         //Define Inspections page
@@ -735,7 +763,7 @@ namespace Keys_Onboarding
 
         //Define Inspection Due Date bar
         [FindsBy(How = How.XPath, Using = "//input[@type='text']")]
-        private IWebElement InspectionDueDate { get; set; }
+        private IWebElement DueDate { get; set; }
 
         //Define Inspection Description bar
         [FindsBy(How = How.XPath, Using = "//textarea[@rows='10']")]
@@ -768,7 +796,7 @@ namespace Keys_Onboarding
             Driver.wait(2000);
 
             //clearing on Inspections Due Date
-            InspectionDueDate.Click();
+            DueDate.Click();
             //InspectionDueDate.Clear();
             Driver.wait(1000);
 
@@ -778,11 +806,14 @@ namespace Keys_Onboarding
 
             //Enter Inspection Description
             InspectionDesc.SendKeys("This inspection is just a test only.");
-            Driver.wait(2000);
+            Driver.wait(3000);
 
             //clicking on Inspections Save button 
-            InspectionSave.Click();
-            Driver.wait(5000);
+            if (InspectionSave.Displayed)
+            {
+                InspectionSave.Click();
+                Thread.Sleep(1000);
+            }
         }
 
     }
