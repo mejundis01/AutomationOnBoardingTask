@@ -12,7 +12,7 @@ namespace Keys_Onboarding.Test
     {
         [TestFixture]
         [Category("Sprint1")]
-        class PO_DashboardFeature : Base
+        class Owners_Properties : Base
         {
 
             [Test]
@@ -68,7 +68,7 @@ namespace Keys_Onboarding.Test
 
         [TestFixture]
         [Category("Sprint2")]
-        class PO_InspectionsFeature : Base
+        class Owners_Inspections : Base
         {
 
             [Test]

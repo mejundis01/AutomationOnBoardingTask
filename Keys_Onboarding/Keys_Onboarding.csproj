@@ -110,11 +110,11 @@
     <Compile Include="Pages\Register.cs" />
     <Compile Include="Pages\Login.cs" />
     <Compile Include="Pages\PropertyOwner.cs" />
-    <Compile Include="Specflow\ProductOwner\PO_Steps.cs" />
-    <Compile Include="Specflow\ProductOwner\PO_Dashboard.feature.cs">
+    <Compile Include="Specflow\ProductOwner\Owners_Steps.cs" />
+    <Compile Include="Specflow\ProductOwner\PO_Properties.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PO_Dashboard.feature</DependentUpon>
+      <DependentUpon>PO_Properties.feature</DependentUpon>
     </Compile>
     <Compile Include="Specflow\ProductOwner\PO_Inspections.feature.cs">
       <AutoGen>True</AutoGen>
@@ -127,9 +127,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Specflow\ProductOwner\PO_Dashboard.feature">
+    <None Include="Specflow\ProductOwner\PO_Properties.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>PO_Dashboard.feature.cs</LastGenOutput>
+      <LastGenOutput>PO_Properties.feature.cs</LastGenOutput>
     </None>
     <None Include="Specflow\ProductOwner\PO_Inspections.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
